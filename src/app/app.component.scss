@@ -1,0 +1,32 @@
+.toolbar-title {
+  margin-left: 16px; // Etwas Abstand zum Logo
+}
+
+.spacer {
+  flex: 1 1 auto; // Sorgt dafür, dass der Button ganz rechts ist
+}
+
+.content {
+  padding: 20px;
+  max-width: 960px; // Für bessere Lesbarkeit auf großen Bildschirmen
+  margin: 20px auto; // Zentriert den Inhalt
+}
+
+mat-card {
+  margin-top: 20px;
+  padding: 24px 40px;
+}
+/* Headerbild Styling */
+.header-image-container {
+  width: 100%;
+  overflow: hidden; /* Verhindert Scrollbalken, wenn das Bild überläuft */
+  margin-bottom: 20px;
+  //border-radius: var(--mat-sys-corner-large); /* Wenn du abgerundete Ecken wünschst */
+}
+
+.full-width-header-image {
+  width: 100%;
+  height: 550px; /* Behält das Seitenverhältnis bei */
+  display: block;
+  object-fit: cover; /* Schneidet das Bild bei Bedarf zu, um den Container zu füllen */
+}
