@@ -1,0 +1,79 @@
+<div class="container">
+  <h1 class="centered-text">Über uns</h1>
+  <br />
+  <div class="row">
+    <div class="col-md-4">
+      <mat-card class="number-cards-section">
+        <mat-card-header>
+          <mat-card-title><h2>Unser Verein in Zahlen</h2></mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="info-cards-container">
+          <app-info-card
+            *ngFor="let card of values; let i = index"
+            [value]="card.value"
+            [label]="card.name"
+            [bandColor]="bandColors()[i]"
+            [cardBackgroundColor]="cardBackgroundColor()"
+            [textColor]="textColor()"
+            [isYear]="card.name === 'Gründungsjahr'" ></app-info-card>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="number-cards-section">
+        <mat-card-header>
+          <mat-card-title><h2>Unser Vorstand</h2></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-member-card
+            [email]="'vorstand@quellegeister.de'"
+            [imageUrl]="'../../assets/logo.png'"
+            [names]="['Melina Kaufeisen']"
+            [function]="'1. Vorstand'"
+          >
+          </app-member-card>
+          <app-member-card
+            [email]="'vorstand@quellegeister.de'"
+            [imageUrl]="'../../assets/logo.png'"
+            [names]="['Tobias Kirschke']"
+            [function]="'2. Vorstand'"
+          >
+          </app-member-card>
+          <app-member-card
+            [email]="'schriftfuehrer@quellegeister.de'"
+            [imageUrl]="'../../assets/logo.png'"
+            [names]="['Robin Maier']"
+            [function]="'Schriftführer:in'"
+          >
+          </app-member-card>
+          <app-member-card
+            [imageUrl]="'../../assets/logo.png'"
+            [names]="['Veronika Zimmermann']"
+            [function]="'Kassierer:in'"
+          >
+          </app-member-card>
+          <app-member-card
+            [imageUrl]="'../../assets/logo.png'"
+            [names]="['Daniela Braun']"
+            [function]="'2. Kassierer:in'"
+          >
+          </app-member-card>
+          <app-member-card
+            [imageUrl]="'../../assets/logo.png'"
+            [names]="['Roman Lottprein', 'Laura Ronge', 'Jörg Ulbricht']"
+            [function]="'Beisitzer:innen'"
+          >
+          </app-member-card>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-8">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title><h2>Vereinsgeschichte</h2></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-timeline [events]="events"></app-timeline>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

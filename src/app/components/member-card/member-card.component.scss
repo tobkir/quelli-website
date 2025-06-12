@@ -1,0 +1,74 @@
+/* src/app/components/member-card/member-card.component.scss */
+
+.member-card-container {
+  min-height:150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--mat-sys-surface-container-high); /* Angepasste Hintergrundfarbe */
+  border-radius: var(--mat-sys-corner-small);
+  overflow: hidden; // Wichtig für border-radius und wenn das Bild über den Rand gehen sollte
+  text-align: center;
+  cursor: pointer; // Zeigt an, dass die Karte interaktiv ist
+  margin-bottom: 20px;
+}
+
+.image-wrapper {
+  position: relative; // Wichtig für die absolute Positionierung des Mail-Symbols
+  width: 100%; // Oder eine feste Breite/Höhe, je nach Design
+  max-width: 100px; // Beispiel: Maximalbreite für das Bild
+  margin-bottom: 15px;
+  min-height: 100px;
+}
+
+.name-label {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--mat-sys-on-surface);
+}
+.function-label {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--mat-sys-on-surface);
+}
+
+.mail-icon-button {
+  position: absolute;
+  bottom: 5px; // Abstand vom unteren Rand des Bild-Wrappers
+  right: 5px; // Abstand vom rechten Rand des Bild-Wrappers
+  background-color: var(--mat-sys-primary); // Hintergrundfarbe des Buttons
+  color: var(--mat-sys-on-primary); // Icon-Farbe
+  border-radius: 50%; // Rund
+  width: 40px; // Feste Breite
+  height: 40px; // Feste Höhe
+  display: flex; // Flexbox für Zentrierung des Icons
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // Leichter Schatten für den Button
+  opacity: 0; // Standardmäßig unsichtbar (Animation steuert Sichtbarkeit)
+  transform: translateY(10px); // Standardmäßig leicht nach unten verschoben (Animation steuert)
+  transition: background-color 0.2s ease-in-out; // Für Theme-Wechsel
+}
+
+.mail-icon-button mat-icon {
+  font-size: 20px; // Größe des Icons
+  width: 20px;
+  height: 20px;
+}
+
+// Dark Mode Anpassungen (falls in dieser Datei definiert)
+/*
+html.dark-theme {
+  .member-card-container {
+    background-color: var(--mat-sys-surface-container-high);
+  }
+  .name-label {
+    color: var(--mat-sys-on-surface);
+  }
+  .mail-icon-button {
+    background-color: var(--mat-sys-primary-dark); // Oder eine andere Farbe für Dark Mode
+    color: var(--mat-sys-on-primary-dark);
+  }
+}
+*/

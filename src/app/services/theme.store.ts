@@ -6,8 +6,17 @@ interface SettingsState {
   theme: string;
 }
 
+const getInitialTheme = (): string => {
+  if (typeof window !== 'undefined' && window.matchMedia) {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+  }
+  return 'light';
+};
+
 const initialSettingsState: SettingsState = {
-  theme: "light",
+  theme: getInitialTheme(),
 }
 
 

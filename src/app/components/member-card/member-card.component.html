@@ -1,0 +1,21 @@
+<div class="member-card-container"
+     (mouseenter)="onMouseEnter()"
+     (mouseleave)="onMouseLeave()"
+     [@cardHover]="isHovered() ? 'hovered' : 'normal'">
+
+  <div class="image-wrapper">
+    <img [src]="imageUrl" [alt]="function" class="img-responsive">
+    <button mat-icon-button class="mail-icon-button"
+            *ngIf="email"
+            [@hoverMail]="isHovered() ? 'visible' : 'hidden'"
+            (click)="openMailClient()">
+      <mat-icon>mail</mat-icon>
+    </button>
+  </div>
+  <div class="function-label">{{ function }}</div>
+  <div class="name-label">
+    <span *ngFor="let name of names">
+      {{ name }} <br/>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="centered-text">Quelli Fahrplan 25/26</h1>
+  <br/>
+  <div class="row">
+    <div class="col-md-8">
+      <mat-card class="number-cards-section">
+        <mat-card-header>
+          <mat-card-title><h2>Unser Fahrplan</h2></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-timeline [events]="events"></app-timeline>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-4">
+      <mat-card class="number-cards-section">
+        <mat-card-header>
+          <mat-card-title><h2>Fahrplan der PNZ</h2></mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="text-align: center">
+          <img class="img-responsive" [src]="'/assets/fahrplan.png'" alt="Bild des Fahrplandeckblattes">
+          <br/>
+          <br/>
+          <a matButton="elevated" href="https://www.peterstaler-narrenzunft.de/wp-content/uploads/2025/01/PNZ-kleiner-Fasnachtsfahrplan-2025.pdf" target="_blank">Download</a>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="number-cards-section">
+        <mat-card-header>
+          <mat-card-title><h2>Aktuelle Fasentzeitung</h2></mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="text-align: center">
+            <img class="img-responsive" [src]="'/assets/fasentzeitung.png'" alt="Bild des Covers der Fasentzeitung">
+          <br/>
+          <br/>
+          <a matButton="elevated" href="https://www.peterstaler-narrenzunft.de/wp-content/uploads/2025/01/PNZ-Fasnachtszeitung-2025.pdf" target="_blank">Download</a>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

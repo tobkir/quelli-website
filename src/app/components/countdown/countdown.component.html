@@ -1,0 +1,41 @@
+<div class="countdown-container">
+  <ng-container *ngIf="!isExpired(); else expiredContent">
+    <div class="countdown-item"
+         (mouseenter)="onMouseEnter('days')"
+         (mouseleave)="onMouseLeave()"
+         [@hoverItem]="hoveredState() === 'days' ? 'hovered' : 'normal'">
+      <span class="value">{{ displayDays() }}</span>
+      <span class="label">Tage</span>
+    </div>
+    <div class="countdown-separator">:</div>
+    <div class="countdown-item"
+         (mouseenter)="onMouseEnter('hours')"
+         (mouseleave)="onMouseLeave()"
+         [@hoverItem]="hoveredState() === 'hours' ? 'hovered' : 'normal'">
+      <span class="value">{{ displayHours() | number:'2.0-0' }}</span>
+      <span class="label">Stunden</span>
+    </div>
+    <div class="countdown-separator">:</div>
+    <div class="countdown-item"
+         (mouseenter)="onMouseEnter('minutes')"
+         (mouseleave)="onMouseLeave()"
+         [@hoverItem]="hoveredState() === 'minutes' ? 'hovered' : 'normal'">
+      <span class="value">{{ displayMinutes() | number:'2.0-0' }}</span>
+      <span class="label">Minuten</span>
+    </div>
+    <div class="countdown-separator">:</div>
+    <div class="countdown-item"
+         (mouseenter)="onMouseEnter('seconds')"
+         (mouseleave)="onMouseLeave()"
+         [@hoverItem]="hoveredState() === 'seconds' ? 'hovered' : 'normal'">
+      <span class="value">{{ displaySeconds() | number:'2.0-0' }}</span>
+      <span class="label">Sekunden</span>
+    </div>
+  </ng-container>
+
+  <ng-template #expiredContent>
+    <div class="countdown-expired">
+      Countdown abgelaufen! 🎉
+    </div>
+  </ng-template>
+</div>

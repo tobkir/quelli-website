@@ -1,0 +1,42 @@
+.info-card {
+  border-radius: var(--mat-sys-corner-small); /* Angular Material standard roundness */
+  overflow: hidden; /* Wichtig für abgerundete Ecken und das Band */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px; /* Innenabstand der Karte */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Standard Schatten */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Für die Hover-Animation */
+  margin-bottom: 20px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Lässt den Inhalt den verfügbaren Platz einnehmen */
+}
+
+.value {
+  font-size: 3em; /* Macht die Zahl groß */
+  font-weight: 700; /* Kräftige Schrift */
+  margin-bottom: 5px;
+  line-height: 1; // Kann helfen, den vertikalen Abstand zu kontrollieren
+}
+
+.label {
+  font-size: 1.1em;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.band {
+  height: 8px; /* Höhe des farbigen Bandes */
+  width: 100%;
+  position: absolute; /* Positioniert das Band relativ zur .info-card */
+  bottom: 0; /* Platziert es am unteren Rand */
+  left: 0;
+}

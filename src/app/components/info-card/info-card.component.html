@@ -1,0 +1,11 @@
+<div class="info-card"
+     [style.background-color]="cardBackgroundColor"
+     [style.color]="textColor"
+     (mouseenter)="onMouseEnter()"
+     (mouseleave)="onMouseLeave()"
+     [@hoverCard]="isHovered() ? 'hovered' : 'normal'">
+  <div class="card-content">
+    <div class="value" [style.color]="textColor">{{ formattedDisplayValue }}</div> <div class="label">{{ label }}</div>
+  </div>
+  <div class="band" [style.background-color]="bandColor"></div>
+</div>

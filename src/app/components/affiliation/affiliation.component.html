@@ -1,0 +1,49 @@
+<div class="container">
+  <h1 class="centered-text">Zugehörigkeit</h1>
+  <br/>
+  <div class="row">
+    <div class="col-md-12">
+      <mat-card class="number-cards-section">
+        <mat-card-header>
+          <mat-card-title><h2>Die Peterstaler Narrenzunft</h2></mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="info-cards-container">
+          <div class="row">
+            <div class="col-md-3">
+              <app-member-card
+                [imageUrl]="'/assets/pnz.png'"
+                [names]="['Elferrat und Ballet']"
+                [function]="''"
+              >
+              </app-member-card>
+            </div>
+            <div class="col-md-3">
+              <app-member-card
+                [imageUrl]="'/assets/hagi-logo.png'"
+                [names]="['Hagekätherle']"
+                [function]="''"
+              >
+              </app-member-card>
+            </div>
+            <div class="col-md-3">
+              <app-member-card
+                [imageUrl]="'/assets/hexen.png'"
+                [names]="['Peterstaler Hexen']"
+                [function]="''"
+              >
+              </app-member-card>
+            </div>
+            <div class="col-md-3">
+              <app-member-card
+                [imageUrl]="'/assets/illwi.png'"
+                [names]="['Illwedritsche']"
+                [function]="''"
+              >
+              </app-member-card>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

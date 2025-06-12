@@ -1,0 +1,64 @@
+/* app.component.scss oder Ihre zentrale Styling-Datei */
+
+.app-footer {
+  background-color: var(--mat-sys-surface-container-highest); /* Oder eine andere passende Hintergrundfarbe */
+  color: var(--mat-sys-on-surface); /* Textfarbe */
+  padding: 20px; /* Innenabstand */
+  display: flex;
+  flex-direction: column; /* Standardmäßig untereinander */
+  align-items: center; /* Alles horizontal zentrieren */
+  text-align: center; /* Text auch zentrieren */
+  border-top: 1px solid var(--mat-sys-outline-variant); /* Optionale Trennlinie */
+  gap: 15px; /* Abstand zwischen den Flex-Items (Social Links, Copyright, Legal Links) */
+
+  .footer-social-links {
+    display: flex;
+    gap: 15px; /* Abstand zwischen den Social Media Icons */
+
+    a {
+      color: var(--mat-sys-on-surface-variant); /* Icon-Farbe */
+      font-size: 28px; /* Größe der Icons anpassen */
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: var(--mat-sys-primary);
+      }
+
+      mat-icon {
+        font-size: 28px; /* Material Icons haben manchmal ihre eigene Font-Size */
+        height: 28px;
+        width: 28px;
+      }
+    }
+  }
+
+  .footer-copyright {
+    font-size: 0.9em;
+    color: var(--mat-sys-on-surface-variant);
+  }
+
+  /* Responsive Anpassungen für größere Bildschirme */
+  @media (min-width: 768px) {
+    flex-direction: row; /* nebeneinander auf größeren Bildschirmen */
+    justify-content: space-between; /* Elemente verteilen */
+    padding: 20px 40px; /* Mehr Padding an den Seiten */
+    align-items: center; /* Wieder zentriert auf der Achse */
+    text-align: left; /* Text linksbündig */
+
+    .footer-social-links,
+    .footer-copyright,
+    .footer-legal-links {
+      flex-basis: auto; /* Standard-Flex-Basis */
+      flex-grow: 1; /* Lässt sie Platz einnehmen */
+      text-align: left; /* Überschreibt center vom Mobile */
+    }
+
+    .footer-copyright {
+      text-align: center; /* Copyright bleibt zentriert */
+    }
+
+    .footer-legal-links {
+      justify-content: flex-end; /* Rechtliche Links rechts ausrichten */
+    }
+  }
+}

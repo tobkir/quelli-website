@@ -1,0 +1,62 @@
+/* src/app/components/countdown/countdown.component.scss */
+
+.countdown-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px; /* Abstand zwischen den Countdown-Items und Separatoren */
+  font-family: Roboto, sans-serif; /* Oder deine Projekt-Schriftart */
+  padding: 5px 0px;
+  background-color: var(--mat-sys-surface-container-high); /* Oder eine passende Hintergrundfarbe */
+  border-radius: var(--mat-sys-corner-medium);
+  color: var(--mat-sys-on-surface);
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.value {
+  font-size: 2.5em; /* Große Zahl */
+  font-weight: bold;
+  color: var(--mat-sys-primary); /* Oder eine Akzentfarbe */
+}
+
+.label {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.countdown-separator {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--mat-sys-on-surface);
+  margin-bottom: 20px;
+}
+
+.countdown-expired {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--mat-sys-on-surface);
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive Anpassungen (optional) */
+@media (max-width: 600px) {
+  .countdown-container {
+    flex-wrap: wrap; /* Lässt die Items umbrechen, wenn der Platz eng wird */
+    gap: 5px;
+  }
+  .value {
+    font-size: 1.8em;
+  }
+  .countdown-separator {
+    font-size: 1.8em;
+  }
+}

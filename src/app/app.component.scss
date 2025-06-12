@@ -1,3 +1,4 @@
+
 .toolbar-title {
   margin-left: 16px; // Etwas Abstand zum Logo
 }
@@ -8,7 +9,7 @@
 
 .content {
   padding: 20px;
-  max-width: 960px; // Für bessere Lesbarkeit auf großen Bildschirmen
+  max-width: 80vw; // Für bessere Lesbarkeit auf großen Bildschirmen
   margin: 20px auto; // Zentriert den Inhalt
 }
 
@@ -26,7 +27,22 @@ mat-card {
 
 .full-width-header-image {
   width: 100%;
-  height: 550px; /* Behält das Seitenverhältnis bei */
+  height: 60vh; /* Behält das Seitenverhältnis bei */
   display: block;
   object-fit: cover; /* Schneidet das Bild bei Bedarf zu, um den Container zu füllen */
+  object-position: center 25%;
+}
+// Sicherstellen, dass der Sidenav-Container den verbleibenden Platz einnimmt
+.sidenav-container {
+  /* calc(100vh - Höhe der Toolbar) stellt sicher, dass der Container den restlichen Platz einnimmt */
+  height: calc(100vh - 64px); /* 64px ist die Standardhöhe der Mat-Toolbar auf Desktop */
+  display: flex; /* WICHTIG für das Layout des Sidenav-Containers */
+  flex-direction: column; /* Optional, wenn du flexbox für die innere Anordnung nutzt */
+}
+
+/* Der Sidenav-Inhalt soll scrollbar sein */
+.sidenav-content {
+  height: 100%; /* Füllt die verbleibende Höhe im sidenav-container aus */
+  overflow: auto; /* Das ist der Container, der scrollen soll */
+  /* -webkit-overflow-scrolling: touch; */ /* Für besseres Scrolling auf iOS */
 }

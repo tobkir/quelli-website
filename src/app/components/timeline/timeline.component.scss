@@ -1,0 +1,230 @@
+/* src/app/components/timeline/timeline.component.scss */
+.timeline-col-content {
+  width:100%;
+  display: flex;
+  justify-content: center; // Zentriert den Inhalt (Karte oder Bild) horizontal
+  align-items: center; // Zentriert den Inhalt vertikal, falls er kleiner als die Spalte ist
+  min-height: 200px; // Geben Sie eine Mindesthöhe, um Platz für Bilder zu schaffen, auch wenn keine Karte da ist
+  // Oder entfernen Sie min-height, wenn die Karte die Größe bestimmen soll
+}
+
+.timeline-image-wrapper {
+  width: 100%; // Bild-Wrapper füllt die Spalte
+  display: flex; // Benötigt, um das Bild darin zu zentrieren
+  justify-content: center;
+  align-items: center;
+  padding: 15px; // Optional: etwas Polsterung um das Bild
+}
+
+.timeline-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--mat-sys-corner-medium);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Optional: Schatten wie bei der Karte
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+.timeline-container {
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+  overflow-x: hidden;
+}
+
+.timeline-line-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 4px;
+  z-index: 0;
+  overflow: hidden; // Beibehalten, um den Effekt des "Zeichnens" zu ermöglichen
+}
+
+.timeline-line {
+  height: 0%; // Startpunkt der Animation (unsichtbar)
+  width: 100%;
+  background-color: var(--mat-sys-primary); // Standardfarbe
+  transition: height 2s ease-out; // Transition für die Animation
+}
+
+.timeline-line.line-active {
+  height: 100%; // Endpunkt der Animation (voll sichtbar)
+}
+
+/* --- Keyframes sind hier NICHT mehr nötig, da wir transition verwenden --- */
+/* @keyframes drawLine {
+  from { height: 0%; }
+  to { height: 100%; }
+} */
+
+
+.timeline-events-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.timeline-event-row {
+  display: flex;
+  margin-bottom: 40px;
+  align-items: center;
+  width: 100%;
+}
+
+.timeline-content-left,
+.timeline-content-right {
+  display: flex;
+  justify-content: center;
+  padding: 0 15px;
+
+  mat-card {
+    width: 100%;
+    border-radius: var(--mat-sys-corner-large);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background: var(--mat-sys-surface-container-high)!important;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .event-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--mat-sys-on-surface);
+  }
+
+  .event-date {
+    font-size: 0.9em;
+    color: var(--mat-sys-on-surface-variant);
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--mat-sys-on-surface);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      margin-bottom: 5px;
+      color: var(--mat-sys-on-surface);
+    }
+  }
+
+  .timeline-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--mat-sys-corner-medium);
+    margin-top: 15px;
+    display: block;
+  }
+}
+
+.timeline-middle-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.timeline-dot {
+  width: 30px;
+  height: 30px;
+  background-color: var(--mat-sys-primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--mat-sys-on-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  z-index: 11;
+}
+
+.timeline-dot mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.timeline-dot:hover {
+  transform: scale(1.2) rotate(360deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+// Responsive Anpassungen (für kleinere Bildschirme)
+@media (max-width: 767px) {
+  .timeline-event-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline-content-left,
+  .timeline-content-right {
+    width: 100%;
+    padding: 0;
+    justify-content: flex-start;
+    order: 2;
+  }
+
+  .timeline-middle-col {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+    order: 1;
+    margin-bottom: 10px;
+  }
+
+  .timeline-line-wrapper {
+    left: 25px;
+    transform: none;
+  }
+
+  .timeline-dot {
+    margin-left: -15px;
+  }
+
+  .timeline-content-left mat-card,
+  .timeline-content-right mat-card {
+    width: calc(100% - 30px);
+    margin-left: 30px;
+  }
+
+  .timeline-content-left.offset-md-7 {
+    margin-left: 30px;
+  }
+  .timeline-col-content {
+    order: 2; // Inhalt (Karte oder Bild) kommt nach dem Dot
+    margin-bottom: 20px; // Abstand zwischen Inhalt und Dot
+  }
+
+  .timeline-content-left,
+  .timeline-content-right {
+    width: 100%; // Volle Breite
+    padding: 0;
+    justify-content: flex-start; // Links ausrichten
+  }
+
+  // Sicherstellen, dass das Bild auf mobilen Geräten auch richtig eingerückt ist
+  .timeline-image-wrapper {
+    width: calc(100% - 30px);
+    margin-left: 30px; // Einrückung, um Platz für die Linie zu lassen
+  }
+}
