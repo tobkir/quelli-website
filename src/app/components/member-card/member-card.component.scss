@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   padding: 15px;
-  background-color: var(--mat-sys-surface-container-high); /* Angepasste Hintergrundfarbe */
+  background-color: var(--mat-sys-surface-container-highest) !important; /* Angepasste Hintergrundfarbe */
   border-radius: var(--mat-sys-corner-small);
   overflow: hidden; // Wichtig für border-radius und wenn das Bild über den Rand gehen sollte
   text-align: center;

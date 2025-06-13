@@ -7,12 +7,10 @@ import {MemberCardComponent} from '../member-card/member-card.component';
 @Component({
   selector: 'app-affiliation.component',
   imports: [
-    InfoCardComponent,
     MatCard,
     MatCardContent,
     MatCardHeader,
     MatCardTitle,
-    NgForOf,
     MemberCardComponent
   ],
   templateUrl: './affiliation.component.html',

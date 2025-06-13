@@ -63,14 +63,14 @@ a {
 
 .img-responsive {
   width: 100%;
-  height: auto;
   border-radius: 5px;
-  transition: transform .2s;
+  transition: transform .2s ease-in-out, box-shadow .2s ease-in-out;
   z-index: 10000;
 }
 
 .img-responsive:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .container {
@@ -242,4 +242,30 @@ a {
   flex-direction: column;
   gap: 15px;
   padding: 0 10px;
+}
+/* Standardmäßig sind Elemente mit dieser Klasse sichtbar (z.B. für Desktop) */
+.hide-on-mobile {
+  display: block; /* Oder was immer der Standard-Anzeigetyp sein soll */
+}
+.show-on-mobile{
+  display: none;
+}
+
+/* Media Query für mobile Ansichten (typischerweise unterhalb einer bestimmten Breite) */
+@media (max-width: 599px), (min-width: 600px) and (max-width: 991px) { /* Beispiel: Alles unter 600px Breite gilt als "mobil" */
+  .hide-on-mobile {
+    display: none !important; /* Wichtig: !important kann nötig sein, um andere Display-Regeln zu überschreiben */
+  }
+  .show-on-mobile{
+    display: block;
+  }
+  .instagram-container{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .timeline-event-row{
+    display: block!important;
+  }
 }

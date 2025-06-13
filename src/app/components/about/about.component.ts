@@ -53,11 +53,11 @@ export class AboutComponent implements OnInit{
     let single = [
       {
         "name": "Mitglieder",
-        "value": "150"
+        "value": "51"
       },
       {
         "name": "Aktive",
-        "value": "80"
+        "value": "46"
       },
       {
         "name": "Gründungsjahr",

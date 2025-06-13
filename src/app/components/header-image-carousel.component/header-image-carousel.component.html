@@ -1,0 +1,14 @@
+<div class="header-image-carousel-container">
+  <img [ngSrc]="currentMainImagePath()"
+       [alt]="altText"
+       [width]="width"
+       [height]="height"
+       class="carousel-image main-image">
+
+  <img [ngSrc]="nextFadeImagePath()"
+       [alt]="altText"
+       [width]="width"
+       [height]="height"
+       class="carousel-image fade-image"
+       [style.opacity]="nextImageOpacity()"
+       (load)="onFadeImageLoaded()" #fadeImage> </div>

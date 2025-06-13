@@ -1,4 +1,4 @@
-<div class="timeline-container" [style.color]="textColor">
+<div class="timeline-container hide-on-mobile" [style.color]="textColor">
   <div class="timeline-line-wrapper">
     <div #timelineLineRef class="timeline-line"
          [class.line-active]="isLineVisible()"
@@ -12,7 +12,7 @@
       <div class="col-md-5 timeline-col-content timeline-content-left">
         <mat-card *ngIf="!isEven(i)" [style.background-color]="cardBackgroundColor">
           <mat-card-header>
-            <mat-card-title>
+            <mat-card-title style="text-align: center">
               <h3 class="event-title">{{ event.title }}</h3>
               <div class="event-date">{{ event.date }}</div>
             </mat-card-title>
@@ -20,7 +20,7 @@
           <mat-card-content>
             <p *ngIf="event.description">{{ event.description }}</p>
             <h4 *ngIf="event.founders">Gründungsmitglieder waren:</h4>
-            <br *ngIf="event.founders" />
+            <br *ngIf="event.founders"/>
             <ul *ngIf="event.founders">
               <li *ngFor="let founder of event.founders">{{ founder }}</li>
             </ul>
@@ -28,7 +28,9 @@
         </mat-card>
 
         <div class="timeline-image-wrapper" *ngIf="isEven(i) && event.imageLeft">
-          <img [src]="event.imageLeft" [alt]="event.title" class="timeline-image">
+          <mat-card>
+            <img mat-card-image [src]="event.imageLeft" [alt]="event.title" class="timeline-image img-responsive">
+          </mat-card>
         </div>
       </div>
 
@@ -41,7 +43,7 @@
       <div class="col-md-5 timeline-col-content timeline-content-right">
         <mat-card *ngIf="isEven(i)" [style.background-color]="cardBackgroundColor">
           <mat-card-header>
-            <mat-card-title>
+            <mat-card-title style="text-align: center">
               <h3 class="event-title">{{ event.title }}</h3>
               <div class="event-date">{{ event.date }}</div>
             </mat-card-title>
@@ -49,7 +51,7 @@
           <mat-card-content>
             <p *ngIf="event.description">{{ event.description }}</p>
             <h4 *ngIf="event.founders">Gründungsmitglieder waren:</h4>
-            <br *ngIf="event.founders" />
+            <br *ngIf="event.founders"/>
             <ul *ngIf="event.founders">
               <li *ngFor="let founder of event.founders">{{ founder }}</li>
             </ul>
@@ -57,7 +59,53 @@
         </mat-card>
 
         <div class="timeline-image-wrapper" *ngIf="!isEven(i) && event.imageRight">
-          <img [src]="event.imageRight" [alt]="event.title" class="timeline-image">
+          <mat-card>
+            <img mat-card-image [src]="event.imageRight" [alt]="event.title" class="timeline-image img-responsive">
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="show-on-mobile">
+  <div class="timeline-container" [style.color]="textColor">
+    <div class="timeline-line-wrapper">
+      <div #timelineLineRef class="timeline-line"
+           [class.line-active]="isLineVisible()"
+           [style.background-color]="lineColor">
+      </div>
+    </div>
+
+    <div class="timeline-events-wrapper">
+      <div class="timeline-event-row" *ngFor="let event of events; let i = index">
+        <div class="row">
+          <div class="col-md-12 timeline-col-content">
+            <mat-card [style.background-color]="cardBackgroundColor" style="width: 100%">
+              <div class="mobile-dot-container">
+                <div class="timeline-dot" [style.background-color]="dotColor">
+                  <mat-icon *ngIf="event.icon">{{ event.icon }}</mat-icon>
+                </div>
+              </div>
+              <mat-card-header>
+                <mat-card-title style="text-align: center">
+                  <h3 class="event-title">{{ event.title }}</h3>
+                </mat-card-title>
+                <mat-card-subtitle>
+                  <div class="event-date">{{ event.date }}</div>
+                </mat-card-subtitle>
+              </mat-card-header>
+              <img class="img-responsive" *ngIf="event.imageLeft" mat-card-image [src]="event.imageLeft">
+              <img class="img-responsive" *ngIf="event.imageRight" mat-card-image [src]="event.imageRight">
+              <mat-card-content>
+                <p *ngIf="event.description">{{ event.description }}</p>
+                <h4 *ngIf="event.founders">Gründungsmitglieder waren:</h4>
+                <br *ngIf="event.founders"/>
+                <ul *ngIf="event.founders">
+                  <li *ngFor="let founder of event.founders">{{ founder }}</li>
+                </ul>
+              </mat-card-content>
+            </mat-card>
+          </div>
         </div>
       </div>
     </div>

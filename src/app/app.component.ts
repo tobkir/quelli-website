@@ -11,13 +11,16 @@ import {NgOptimizedImage} from '@angular/common';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListItem, MatNavList} from '@angular/material/list';
 import {FooterComponent} from './components/footer/footer.component';
+import {
+  HeaderImageCarouselComponent
+} from './components/header-image-carousel.component/header-image-carousel.component';
 
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, MatToolbar, MatIconModule, MatCardModule,
     MatButtonModule, MatButtonToggleModule, FormsModule, NgOptimizedImage,
-    MatListItem, RouterLink, MatSidenavModule, MatNavList, FooterComponent],
+    MatListItem, RouterLink, MatSidenavModule, MatNavList, FooterComponent, HeaderImageCarouselComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

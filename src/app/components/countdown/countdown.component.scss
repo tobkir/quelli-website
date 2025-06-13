@@ -48,15 +48,15 @@
 }
 
 /* Responsive Anpassungen (optional) */
-@media (max-width: 600px) {
+@media (max-width: 600px),  (min-width: 600px) and (max-width: 991px) {
   .countdown-container {
     flex-wrap: wrap; /* Lässt die Items umbrechen, wenn der Platz eng wird */
     gap: 5px;
   }
   .value {
-    font-size: 1.8em;
+    font-size: 1.1em;
   }
   .countdown-separator {
-    font-size: 1.8em;
+    display: none;
   }
 }

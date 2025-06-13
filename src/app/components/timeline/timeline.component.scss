@@ -1,38 +1,13 @@
 /* src/app/components/timeline/timeline.component.scss */
-.timeline-col-content {
-  width:100%;
-  display: flex;
-  justify-content: center; // Zentriert den Inhalt (Karte oder Bild) horizontal
-  align-items: center; // Zentriert den Inhalt vertikal, falls er kleiner als die Spalte ist
-  min-height: 200px; // Geben Sie eine Mindesthöhe, um Platz für Bilder zu schaffen, auch wenn keine Karte da ist
-  // Oder entfernen Sie min-height, wenn die Karte die Größe bestimmen soll
-}
 
-.timeline-image-wrapper {
-  width: 100%; // Bild-Wrapper füllt die Spalte
-  display: flex; // Benötigt, um das Bild darin zu zentrieren
-  justify-content: center;
-  align-items: center;
-  padding: 15px; // Optional: etwas Polsterung um das Bild
-}
+/* --- Desktop Styles (für .timeline-container) --- */
 
-.timeline-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--mat-sys-corner-medium);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Optional: Schatten wie bei der Karte
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-}
-.timeline-container {
+.timeline-container { /* Applies when !isHandset() */
   position: relative;
   width: 100%;
   padding: 20px 0;
   overflow-x: hidden;
+  display: block; /* Standard */
 }
 
 .timeline-line-wrapper {
@@ -43,26 +18,19 @@
   height: 100%;
   width: 4px;
   z-index: 0;
-  overflow: hidden; // Beibehalten, um den Effekt des "Zeichnens" zu ermöglichen
+  overflow: hidden;
 }
 
 .timeline-line {
-  height: 0%; // Startpunkt der Animation (unsichtbar)
+  height: 0%;
   width: 100%;
-  background-color: var(--mat-sys-primary); // Standardfarbe
-  transition: height 2s ease-out; // Transition für die Animation
+  background-color: var(--mat-sys-primary);
+  transition: height 2s ease-out;
 }
 
 .timeline-line.line-active {
-  height: 100%; // Endpunkt der Animation (voll sichtbar)
+  height: 100%;
 }
-
-/* --- Keyframes sind hier NICHT mehr nötig, da wir transition verwenden --- */
-/* @keyframes drawLine {
-  from { height: 0%; }
-  to { height: 100%; }
-} */
-
 
 .timeline-events-wrapper {
   position: relative;
@@ -77,70 +45,100 @@
   width: 100%;
 }
 
-.timeline-content-left,
-.timeline-content-right {
+.timeline-col-content {
+  width:100%; /* Within Bootstrap grid, not 100% of parent */
   display: flex;
   justify-content: center;
-  padding: 0 15px;
+  align-items: center;
+  min-height: 200px;
+  padding: 0 15px; // Restore original padding
+}
 
-  mat-card {
-    width: 100%;
-    border-radius: var(--mat-sys-corner-large);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    background: var(--mat-sys-surface-container-high)!important;
+.timeline-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //padding: 15px;
+}
 
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-  }
+.timeline-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--mat-sys-corner-medium);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
-  .event-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: var(--mat-sys-on-surface);
-  }
-
-  .event-date {
-    font-size: 0.9em;
-    color: var(--mat-sys-on-surface-variant);
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  p {
-    font-size: 1em;
-    line-height: 1.6;
-    color: var(--mat-sys-on-surface);
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    li {
-      margin-bottom: 5px;
-      color: var(--mat-sys-on-surface);
-    }
-  }
-
-  .timeline-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--mat-sys-corner-medium);
-    margin-top: 15px;
-    display: block;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
 }
 
-.timeline-middle-col {
+/* Event-specific styles (apply to both mobile and desktop cards) */
+mat-card {
+  width: 100%;
+  min-width: 232px;
+  border-radius: var(--mat-sys-corner-large);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: var(--mat-sys-surface-container-highest) !important;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  img{
+    min-width: 100%;
+  }
+}
+
+.event-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--mat-sys-on-surface);
+}
+
+.event-date {
+  font-size: 0.9em;
+  color: var(--mat-sys-on-surface-variant);
+  margin-bottom: 15px;
+  text-align: center; /* Default for desktop */
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.6;
+  color: var(--mat-sys-on-surface);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    margin-bottom: 5px;
+    color: var(--mat-sys-on-surface);
+  }
+}
+
+.timeline-middle-col { /* Desktop only */
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   z-index: 10;
+}
+
+.mobile-dot-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  padding-top: 10px;
 }
 
 .timeline-dot {
@@ -168,63 +166,106 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-// Responsive Anpassungen (für kleinere Bildschirme)
-@media (max-width: 767px) {
-  .timeline-event-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+/* --- Mobile Styles (für .timeline-container-mobile) --- */
 
-  .timeline-content-left,
-  .timeline-content-right {
-    width: 100%;
-    padding: 0;
-    justify-content: flex-start;
-    order: 2;
-  }
+.timeline-container-mobile { /* Applies when isHandset() */
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+  overflow-x: hidden;
+  display: flex; /* Haupt-Flexbox für Inhalt links und Linie rechts */
+  justify-content: space-between;
+  align-items: flex-start; /* Oben ausrichten */
+}
 
-  .timeline-middle-col {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 20px;
-    order: 1;
-    margin-bottom: 10px;
-  }
+.timeline-mobile-content-area {
+  flex-grow: 1; /* Nimmt den meisten Platz ein */
+  padding-right: 40px; /* Platz für die Linie auf der rechten Seite */
+  width: 100%; /* Wichtig für flex-basis */
+}
 
-  .timeline-line-wrapper {
-    left: 25px;
-    transform: none;
-  }
+.timeline-event-mobile-row {
+  display: flex; /* Für Inhalt und Dot nebeneinander */
+  align-items: flex-start;
+  margin-bottom: 20px; /* Abstand zwischen Events */
+  position: relative; /* Für Dot's absolute Position */
+  padding-left: 20px; /* Startpadding für die Inhalte */
+}
 
-  .timeline-dot {
-    margin-left: -15px;
-  }
+.timeline-mobile-event-content {
+  flex-grow: 1; /* Inhalt nimmt den verbleibenden Platz ein */
+  width: 100%; /* Oder `width: calc(100% - 60px);` falls Dot feste Breite hat */
+  padding: 0;
+  text-align: left; /* Immer linksbündig */
+  display: flex; /* um Bild/Karte zu steuern */
+  flex-direction: column; /* Karte und Bild untereinander */
+}
 
-  .timeline-content-left mat-card,
-  .timeline-content-right mat-card {
-    width: calc(100% - 30px);
-    margin-left: 30px;
-  }
+.timeline-mobile-event-content mat-card {
+  width: 100%; /* Karte nimmt volle Breite des Inhaltsbereichs */
+  // Inherits other mat-card styles
+}
 
-  .timeline-content-left.offset-md-7 {
-    margin-left: 30px;
-  }
-  .timeline-col-content {
-    order: 2; // Inhalt (Karte oder Bild) kommt nach dem Dot
-    margin-bottom: 20px; // Abstand zwischen Inhalt und Dot
-  }
+.timeline-mobile-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; /* Bild linksbündig */
+  padding: 0;
+  margin-top: 15px; /* Abstand zwischen Karte und Bild */
+}
 
-  .timeline-content-left,
-  .timeline-content-right {
-    width: 100%; // Volle Breite
-    padding: 0;
-    justify-content: flex-start; // Links ausrichten
-  }
+.timeline-mobile-image-wrapper .timeline-image {
+  margin-left: 0; /* Sicherstellen, dass das Bild links beginnt */
+  // Inherits other timeline-image styles
+}
 
-  // Sicherstellen, dass das Bild auf mobilen Geräten auch richtig eingerückt ist
-  .timeline-image-wrapper {
-    width: calc(100% - 30px);
-    margin-left: 30px; // Einrückung, um Platz für die Linie zu lassen
-  }
+.timeline-mobile-dot-col {
+  flex-shrink: 0; /* Verhindert, dass der Dot schrumpft */
+  width: 30px; /* Feste Breite für den Dot-Bereich */
+  position: absolute; /* Absolut positioniert innerhalb der Zeile */
+  right: -25px; /* Adjust this value to align with the line */
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center; /* Zentriert den Dot vertikal */
+  justify-content: center;
+}
+
+.timeline-mobile-dot-col .timeline-dot {
+  width: 24px; /* Kleinerer Dot auf Mobile */
+  height: 24px;
+  // Inherits other timeline-dot styles
+}
+
+.timeline-mobile-dot-col .timeline-dot mat-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.timeline-line-wrapper-mobile {
+  position: sticky; /* Linie klebt beim Scrollen */
+  top: 0; /* Oben festkleben */
+  right: 20px; /* Rechts vom Viewport */
+  height: 100vh; /* Macht die Linie so hoch wie den Viewport */
+  width: 2px;
+  z-index: 0;
+  overflow: hidden;
+  background-color: var(--mat-sys-primary); /* Farbe für die Linie selbst */
+}
+
+.timeline-line-mobile {
+  height: 0%; // Startpunkt der Animation
+  width: 100%;
+  background-color: var(--mat-sys-primary); // Farbe wird von Wrapper gesetzt
+  transition: height 2s ease-out; // Transition für die Animation
+}
+
+.timeline-line-mobile.line-active {
+  height: 100%; // Endpunkt der Animation
+}
+
+// Global styles for event date to ensure it's always left-aligned on mobile
+.timeline-container-mobile .event-date {
+  text-align: left;
 }

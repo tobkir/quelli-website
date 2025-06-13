@@ -8,20 +8,23 @@
 }
 
 .content {
-  padding: 20px;
-  max-width: 80vw; // Für bessere Lesbarkeit auf großen Bildschirmen
-  margin: 20px auto; // Zentriert den Inhalt
+  padding: 0 15px;
+  box-sizing: border-box;
+  max-width: 90vw; // Für bessere Lesbarkeit auf großen Bildschirmen
+  margin: auto auto; // Zentriert den Inhalt
 }
 
 mat-card {
   margin-top: 20px;
   padding: 24px 40px;
 }
+
 /* Headerbild Styling */
 .header-image-container {
   width: 100%;
   overflow: hidden; /* Verhindert Scrollbalken, wenn das Bild überläuft */
   margin-bottom: 20px;
+  padding: 0;
   //border-radius: var(--mat-sys-corner-large); /* Wenn du abgerundete Ecken wünschst */
 }
 
@@ -32,6 +35,7 @@ mat-card {
   object-fit: cover; /* Schneidet das Bild bei Bedarf zu, um den Container zu füllen */
   object-position: center 25%;
 }
+
 // Sicherstellen, dass der Sidenav-Container den verbleibenden Platz einnimmt
 .sidenav-container {
   /* calc(100vh - Höhe der Toolbar) stellt sicher, dass der Container den restlichen Platz einnimmt */
@@ -43,6 +47,7 @@ mat-card {
 /* Der Sidenav-Inhalt soll scrollbar sein */
 .sidenav-content {
   height: 100%; /* Füllt die verbleibende Höhe im sidenav-container aus */
-  overflow: auto; /* Das ist der Container, der scrollen soll */
-  /* -webkit-overflow-scrolling: touch; */ /* Für besseres Scrolling auf iOS */
+  overflow-y: auto; /* Das ist der Container, der scrollen soll */
+  /* -webkit-overflow-scrolling: touch; */
+  /* Für besseres Scrolling auf iOS */
 }

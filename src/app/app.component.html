@@ -2,11 +2,13 @@
   <button mat-icon-button (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  <span><a href="/"><img class="site-logo" ngSrc="./assets/logo.png" alt="Quellgeister Bad Peterstal e.V. Logo" height="40" width="30"></a></span>
+  <span><a href="/"><img class="site-logo" ngSrc="./assets/logo.png" alt="Quellgeister Bad Peterstal e.V. Logo"
+                         height="40" width="30"></a></span>
   <span class="toolbar-title"><a [routerLink]="'/'">Quellgeister Bad Peterstal e.V.</a></span>
   <span class="spacer"></span>
   <mat-button-toggle-group name="fontStyle" aria-label="Designauswahl"
                            [ngModel]="theme()"
+                           class="hide-on-mobile"
                            (ngModelChange)="updateTheme($event)">
     <mat-button-toggle value="light" name="light" aria-label="Helles Design">
       <mat-icon fontIcon="light_mode"></mat-icon>
@@ -35,15 +37,28 @@
         <mat-icon matListItemIcon fontIcon="group"></mat-icon>
         <span matListItemLine>Zugehörigkeit</span>
       </a>
+      <a class="nav-icon-button" mat-list-item [routerLink]="'/memoriam'" (click)="drawer.close()">
+        <mat-icon matListItemIcon fontIcon="church"></mat-icon>
+        <span matListItemLine>In Memoriam</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content">
-    <div class="header-image-container">
-      <img ngSrc="./assets/header.jpg" alt="Vereins-Headerbild" width="624" height="163" class="full-width-header-image">
-    </div>
+    <app-header-image-carousel
+      [imageFolderPath]="'assets/header-images/'"
+      [numberOfImages]="3"
+      [imagePrefix]="'header'"
+      [imageExtension]="'.jpg'"
+      [intervalMs]="5000"
+      [altText]="''"
+      [width]="624"
+      [height]="163">
+    </app-header-image-carousel>
+    <br>
     <div class="content">
       <router-outlet></router-outlet>
     </div>
+    <br>
     <app-footer></app-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

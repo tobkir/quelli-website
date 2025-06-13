@@ -1,6 +1,7 @@
 /* app.component.scss oder Ihre zentrale Styling-Datei */
 
 .app-footer {
+  width: 100%;
   background-color: var(--mat-sys-surface-container-highest); /* Oder eine andere passende Hintergrundfarbe */
   color: var(--mat-sys-on-surface); /* Textfarbe */
   padding: 20px; /* Innenabstand */
@@ -39,26 +40,27 @@
 
   /* Responsive Anpassungen für größere Bildschirme */
   @media (min-width: 768px) {
-    flex-direction: row; /* nebeneinander auf größeren Bildschirmen */
-    justify-content: space-between; /* Elemente verteilen */
-    padding: 20px 40px; /* Mehr Padding an den Seiten */
-    align-items: center; /* Wieder zentriert auf der Achse */
-    text-align: left; /* Text linksbündig */
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 40px;
+    align-items: center;
+    text-align: left;
 
-    .footer-social-links,
-    .footer-copyright,
-    .footer-legal-links {
-      flex-basis: auto; /* Standard-Flex-Basis */
-      flex-grow: 1; /* Lässt sie Platz einnehmen */
-      text-align: left; /* Überschreibt center vom Mobile */
+    .footer-social-links {
+      flex-grow: 1; // Nimmt den benötigten Platz links
+      text-align: left;
     }
 
     .footer-copyright {
-      text-align: center; /* Copyright bleibt zentriert */
+      flex-grow: 0; // Nimmt nur den notwendigen Platz ein
+      text-align: center; // Zentriert sich innerhalb des eigenen Bereichs
     }
 
-    .footer-legal-links {
-      justify-content: flex-end; /* Rechtliche Links rechts ausrichten */
+    .legal-links {
+      flex-grow: 1; // Nimmt den benötigten Platz rechts
+      justify-content: flex-end; // Schiebt Links nach rechts
+      display: flex; // Wichtig für justify-content
+      gap: 20px;
     }
   }
 }

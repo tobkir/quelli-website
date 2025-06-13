@@ -1,0 +1,34 @@
+/* src/app/components/header-image-carousel/header-image-carousel.component.scss */
+
+.header-image-carousel-container {
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-image {
+  position: absolute; /* Bilder übereinander legen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60vh; /* Wichtig, damit sie den Container ausfüllen */
+  object-fit: cover; /* Stellt sicher, dass das Bild den Container ausfüllt */
+  display: block; /* Entfernt zusätzlichen Leerraum */
+}
+
+.main-image {
+  z-index: 1; /* Liegt unter dem Fade-Image */
+  opacity: 1; /* Standardmäßig immer sichtbar */
+}
+
+.fade-image {
+  z-index: 2; /* Liegt über dem Main-Image */
+  opacity: 0; /* Startet unsichtbar */
+  transition: opacity 1.0s ease-in-out; /* HIER DIE DAUER DER FADE-ANIMATION EINSTELLEN */
+  // Die 0.8s sollte mit `fadeDurationMs` in der TS-Datei übereinstimmen!
+}
