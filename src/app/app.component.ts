@@ -13,7 +13,7 @@ import {MatListItem, MatNavList} from '@angular/material/list';
 import {FooterComponent} from './components/footer/footer.component';
 import {
   HeaderImageCarouselComponent
-} from './components/header-image-carousel.component/header-image-carousel.component';
+} from './components/header-image-carousel/header-image-carousel.component';
 
 
 @Component({
