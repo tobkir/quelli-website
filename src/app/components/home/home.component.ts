@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   instagramEmbedCode: SafeHtml;
   nextFasent = '2025-11-11T00:00:00';
-  @ViewChild('instagramContainer') instagramContainer!: ElementRef;
+  @ViewChild('instagram-feed-container') instagramContainer!: ElementRef;
   private observer!: MutationObserver;
 
   constructor(sanitizer: DomSanitizer) {
