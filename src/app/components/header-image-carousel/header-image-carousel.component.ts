@@ -35,7 +35,6 @@ export class HeaderImageCarouselComponent implements OnInit, OnDestroy {
   nextFadeImagePath: WritableSignal<string> = signal(''); // Wird nie leer sein
   nextImageOpacity: WritableSignal<number> = signal(0);
 
-  // Wird verwendet, um zu steuern, ob ein Fade-In erwartet wird
   private expectingFadeIn: WritableSignal<boolean> = signal(false);
 
   private imageIntervalSubscription: Subscription | undefined;
