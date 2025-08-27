@@ -10,7 +10,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-architects/ngrx-toolkit": "^19.1.0",
+    "@angular-architects/ngrx-toolkit": "^20.1.0",
     "@angular/animations": "^20.0.2",
     "@angular/cdk": "^20.0.2",
     "@angular/common": "^20.0.0",
@@ -20,7 +20,7 @@
     "@angular/material": "^20.0.2",
     "@angular/platform-browser": "^20.0.0",
     "@angular/router": "^20.0.0",
-    "@ngrx/signals": "^19.2.1",
+    "@ngrx/signals": "^20.0.1",
     "@swimlane/ngx-charts": "^22.0.0",
     "d3": "^7.9.0",
     "rxjs": "~7.8.0",
