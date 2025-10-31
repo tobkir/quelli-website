@@ -55,28 +55,29 @@ export const NEXT_EVENTS: TimelineEvent[] = [
     imageRight: '/assets/logo.png', // Passe den Pfad an
     icon: 'event'
   },
-  {
-    date: '14. Februar 2026',
-    title: 'Kinderball / Maskenball',
-    description: '',
-    imageLeft: '/assets/pnz.png', // Passe den Pfad an
-    icon: 'event'
-  },
-  {
-    date: '16. Februar 2026',
-    title: 'Umzug Nordrach / Oberhamersbach',
-    description: '',
-    imageRight: '/assets/pnz.png', // Passe den Pfad an
-    icon: 'event'
-  },
-  {
-    date: '17. Februar 2026',
-    title: 'Dorffasent / Umzug Lautenbach',
-    description: '',
-    imageLeft: '/assets/pnz.png', // Passe den Pfad an
-    icon: 'event'
-  },
+
 ]
+/*{
+  date: '14. Februar 2026',
+    title: 'Kinderball / Maskenball',
+  description: '',
+  imageLeft: '/assets/pnz.png', // Passe den Pfad an
+  icon: 'event'
+},
+{
+  date: '16. Februar 2026',
+    title: 'Umzug Nordrach / Oberhamersbach',
+  description: '',
+  imageRight: '/assets/pnz.png', // Passe den Pfad an
+  icon: 'event'
+},
+{
+  date: '17. Februar 2026',
+    title: 'Dorffasent / Umzug Lautenbach',
+  description: '',
+  imageLeft: '/assets/pnz.png', // Passe den Pfad an
+  icon: 'event'
+}*/
 // Das Array der Chronik-Events
 export const CHRONIK_EVENTS: TimelineEvent[] = [
   {
