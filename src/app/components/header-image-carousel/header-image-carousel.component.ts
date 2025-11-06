@@ -16,7 +16,7 @@ import {NgOptimizedImage} from '@angular/common';
 export class HeaderImageCarouselComponent implements OnInit, OnDestroy {
 
   @Input() imageFolderPath: string = 'assets/header-images/';
-  @Input() numberOfImages: number = 3;
+  @Input() numberOfImages: number = 4;
   @Input() imagePrefix: string = 'header';
   @Input() imageExtension: string = '.webp';
 
